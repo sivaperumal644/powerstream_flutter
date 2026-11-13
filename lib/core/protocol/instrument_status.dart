@@ -48,3 +48,8 @@ class InstrumentStatus extends Equatable {
   @override
   List<Object?> get props => [runState, batteryPercent, errorCode];
 }
+
+extension BatterStatus on InstrumentStatus {
+  static const lowThresholdPercent = 20;
+  bool get isBatteryLow => batteryPercent < lowThresholdPercent;
+}
