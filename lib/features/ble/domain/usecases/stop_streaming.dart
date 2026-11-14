@@ -2,7 +2,7 @@ import 'package:powerstream_flutter/features/ble/domain/repositories/instrument_
 
 class StopStreaming {
   final InstrumentRepository _repository;
-  const StopStreaming({required this._repository});
+  const StopStreaming(this._repository);
 
   Future<void> call() async => await _repository.stop();
 }

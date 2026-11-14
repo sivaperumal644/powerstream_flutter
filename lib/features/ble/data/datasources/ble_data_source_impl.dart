@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 import 'dart:typed_data';
 
 import 'package:powerstream_flutter/features/ble/data/datasources/ble_data_source.dart';
@@ -89,6 +90,7 @@ class BleDataSourceImpl implements BleDataSource {
 
     _connectedDevice = device;
     _connectionSub = _connectedDevice?.connectionStream.listen((connected) {
+      developer.log('connectionStream: $connected', name: 'ble');
       if (!connected) _releaseConnection();
       _connections.add(connected);
     });

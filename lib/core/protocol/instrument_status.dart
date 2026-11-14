@@ -34,14 +34,14 @@ class InstrumentStatus extends Equatable {
         2 => InstrumentRunState.error,
         _ => InstrumentRunState.unknown,
       },
-      errorCode: switch (bytes[1]) {
+      batteryPercent: bytes[1],
+      errorCode: switch (bytes[2]) {
         0 => InstrumentErrorCode.none,
         1 => InstrumentErrorCode.badCommand,
         2 => InstrumentErrorCode.mtuTooSmall,
         3 => InstrumentErrorCode.queueOverflow,
         _ => InstrumentErrorCode.unknown,
       },
-      batteryPercent: bytes[2],
     );
   }
 

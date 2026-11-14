@@ -50,6 +50,10 @@ class BleInstrumentRepository implements InstrumentRepository {
   }
 
   void _onConnectionChanged(bool isConnected) {
+    developer.log(
+      'repository: connected=$isConnected, wasConnected=$_connected',
+      name: 'ble',
+    );
     if (!isConnected && _connected) {
       _connected = false;
       _latestStatus = null;

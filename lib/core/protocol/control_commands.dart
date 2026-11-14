@@ -22,7 +22,7 @@ abstract final class ControlCommands {
   static Uint8List setRate(SampleRate rate) {
     final data = ByteData(3);
     data.setUint8(0, ControlOpcodes.setRate);
-    data.setUint16(1, rate.hz);
+    data.setUint16(1, rate.hz, Endian.little);
     return data.buffer.asUint8List();
   }
 }
